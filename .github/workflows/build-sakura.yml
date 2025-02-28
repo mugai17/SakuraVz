@@ -4,24 +4,24 @@ name: build sakura
 # events but only for the master branch
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - vz_mode
-    paths-ignore:
-      - '**/*.md'
-      - .gitignore
-      - .editorconfig
-      - appveyor.yml
-      - 'azure-pipelines*.yml'
-      - 'ci/azure-pipelines/template*.yml'
-  pull_request:
-    paths-ignore:
-      - '**/*.md'
-      - .gitignore
-      - .editorconfig
-      - appveyor.yml
-      - 'azure-pipelines*.yml'
-      - 'ci/azure-pipelines/template*.yml'
+#  push:
+#    branches:
+#      - vz_mode
+#    paths-ignore:
+#      - '**/*.md'
+#      - .gitignore
+#      - .editorconfig
+#      - appveyor.yml
+#      - 'azure-pipelines*.yml'
+#      - 'ci/azure-pipelines/template*.yml'
+#  pull_request:
+#    paths-ignore:
+#      - '**/*.md'
+#      - .gitignore
+#      - .editorconfig
+#      - appveyor.yml
+#      - 'azure-pipelines*.yml'
+#      - 'ci/azure-pipelines/template*.yml'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,14 +43,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     ## see https://github.com/actions/checkout
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
         submodules: 'recursive'
 
     ## see https://github.com/microsoft/setup-msbuild
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1
+      uses: microsoft/setup-msbuild@v2
 
     - name: Setup environment variables
       run: |
